@@ -1,0 +1,21 @@
+{
+  "defaultConnection": "default",
+  "connections": {
+    "default": {
+      "connector": "strapi-hook-mongoose",
+      "settings": {
+        "client": "mongo",
+        "host": "cluster0-c9zde.mongodb.net",
+        "port": 27017,
+        "database": "server",
+        "username": "admin",
+        "password": "admin",
+        "srv": true,
+        "useUnifiedTopology": true
+      },
+      "options": {
+        "ssl": true
+      }
+    }
+  }
+}
