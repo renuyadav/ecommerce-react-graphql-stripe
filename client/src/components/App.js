@@ -13,7 +13,7 @@ class App extends Component {
   }
   async  componentDidMount() {
     try {
-      /*const response = await strapi.request('post', 'graphql', {
+      const response = await strapi.request('post', 'graphql', {
         data: {
           query: `query {
           brands{
@@ -27,14 +27,15 @@ class App extends Component {
           }
         }`
         }
-      });*/
+      });
       //local development
-      const response = await fetch('/brands.json');
-      const data = await response.json();
-      console.log("response>>>" + data);
-      this.setState({brands: data.brands, loadingBrands: false});
+      /* const response = await fetch('/brands.json');
+       const data = await response.json();
+       console.log("response>>>" + data);
+       this.setState({brands: data.brands, loadingBrands: false});*/
       //strapi
-      //this.setState({brands: response.data.brands});
+      //console.log("Renu>>" + response.data.brands);
+      this.setState({brands: response.data.brands, loadingBrands: false});
     } catch (err) {
       console.error(err);
       this.setState({loadingBrands: false});
@@ -76,12 +77,12 @@ class App extends Component {
             <Box paddingY={4} width={200} margin={2} key={brand._id}>
               <Card image={
                 <Box width={200} height={200}>
-                  {/*Local development */}
+                  {/*Local development 
                   <Image fit="cover" alt="BrandImage" naturalHeight={1} naturalWidth={1} src="./brands-images/brand-bearpaw-river.png" />
-
-                  {/*
-                  <Image alt="BrandImage" naturalHeight={1} naturalWidth={1} src={`${apiURL}${brand.image.url}`} />
                   */}
+                  {
+                    <Image fit="cover" alt="BrandImage" naturalHeight={1} naturalWidth={1} src={`${apiURL}${brand.image.url}`} />
+                  }
                 </Box>
               }>
                 <Box justifyContent="center" display="flex" alignItems="center" direction="column">
